@@ -10,7 +10,9 @@ export function renderPaymentSummary() {
         const deliveryOption = getDeliveryOption(cartItem.deliveryOptionId);
 
         shippingPriceCents += deliveryOption.priceCents
-
+         
+        let cartQuantity= 0;
+        cartQuantity+=cartItem.quantity;
 
     });
     const totalBeforeTaxCents = productPriceCents + shippingPriceCents
@@ -22,7 +24,7 @@ export function renderPaymentSummary() {
           </div>
 
           <div class="payment-summary-row">
-            <div>Items (3):</div>
+            <div class="js-items">Items  :</div>
             <div class="payment-summary-money">$${(Math.round(productPriceCents) / 100).toFixed(2)}</div>
           </div>
 
@@ -51,6 +53,24 @@ export function renderPaymentSummary() {
           </button>
 `;
     document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHtml;
+
+
+
+    
+    function cartquantityItems() {
+
+        let cartQuantity = 0;
+
+        cart.forEach((cartItem) => {
+            cartQuantity += cartItem.quantity;
+
+        });
+
+
+        document.querySelector('.js-items')
+            .innerHTML = `Items : ${cartQuantity} `;
+    }
+    cartquantityItems();
 }
 
 
