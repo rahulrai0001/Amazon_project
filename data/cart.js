@@ -1,4 +1,8 @@
-  let cart = JSON.parse(localStorage.getItem('cart'));
+let cart;
+
+loadFromStorage();
+  function loadFromStorage(){
+  cart = JSON.parse(localStorage.getItem('cart'));
   
   if(!cart){
     cart =[{
@@ -10,7 +14,8 @@
         quantity:1,
         deliveryOptionId: '2'
       }];
-  };
+  }
+}
   
 
   function saveToStorage(){
