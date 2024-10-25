@@ -96,10 +96,13 @@ function Cart(localstoragekey){
   
   }
   };
-
+ 
 
   return cart;
+ 
 }
+
+
 
 const cart = Cart('cart-oop');
 const businessCart = Cart('cart-business');
